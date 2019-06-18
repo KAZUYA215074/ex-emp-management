@@ -1,5 +1,6 @@
 package jp.co.sample.form;
 
+import javax.validation.constraints.NotBlank;
 
 /**
  * ログイン画面で入力された情操を扱うフォームです。
@@ -10,8 +11,10 @@ package jp.co.sample.form;
 public class LoginForm {
 	
 	/* メールアドレス */
+	@NotBlank
 	private String mailAddress;
 	/* パスワード */
+	@NotBlank
 	private String password;
 	
 	public String toString() {

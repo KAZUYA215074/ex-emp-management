@@ -1,9 +1,9 @@
 package jp.co.sample.form;
 
-
+import javax.validation.constraints.NotBlank;
 
 /**
- * 登録フォームに入力された情報を扱うフォームです
+ * 登録画面に入力された情報を扱うフォームです
  * 
  * @author user
  *
@@ -11,11 +11,21 @@ package jp.co.sample.form;
 public class InsertAdministratorForm {
 	
 	/* 名前 */
+	@NotBlank
 	private String name;
 	/*メールアドレス */
+	@NotBlank
 	private String mailAddress;
 	/*パスワード */
+	@NotBlank(message="パスワードを入力してください")
 	private String password;
+	
+
+	@Override
+	public String toString() {
+		return "InsertAdministratorForm [name=" + name + ", mailAddress=" + mailAddress + ", password=" + password
+				+ "]";
+	}
 
 	public String getName() {
 		return name;

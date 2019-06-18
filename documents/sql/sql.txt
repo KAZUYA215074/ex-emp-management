@@ -1,32 +1,8 @@
---テーブルがあった場合は事前に削除
 DROP TABLE IF EXISTS administrators CASCADE;
 DROP TABLE IF EXISTS employees CASCADE;
+create table administrators(id serial primary key,name text not null,mail_address text not null unique,password text not null);
+create table employees (id integer primary key,name text not null,image text not null,gender text not null,hire_date timestamp not null,mail_address text not null unique,zip_code text not null,address text not null,telephone text not null,salary integer not null,characteristics text not null,dependents_count integer not null default 0);
 
--- 管理者情報テーブル
-create table administrators(
-  id serial primary key,
-  name text not null,
-  mail_address text not null unique,
-  password text not null
-);
-
--- 従業員情報テーブル
-create table employees (
-  id integer primary key,
-  name text not null,
-  image text not null,
-  gender text not null,
-  hire_date timestamp not null,
-  mail_address text not null unique,
-  zip_code text not null,
-  address text not null,
-  telephone text not null,
-  salary integer not null,
-  characteristics text not null,
-  dependents_count integer not null default 0
-);
-
--- 従業員情報インサートデータ
 insert into employees(id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristics,dependents_count) values(1,'山田太郎',  'e1.png','男性', '2012/11/29', 'taro.yamada@sample.com'		,'000-0000', '北海道札幌市1-1-1'		, '090-0000-0000', 400000, '山田太郎さんは明るく素直な性格です。リーダーシップを発揮します。新卒社員研修の時はグループ開発の時にリーダーを買ってでました。積極性も人間性も抜群です。周りに対する不満も聞いたことがありません。', 3);
 insert into employees(id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristics,dependents_count) values(2,'山田花子',  'e2.png','女性', '2013/01/03', 'hanako.yamada@sample.com'	,'111-1111', '青森県青森市1-1-1'		, '090-1111-1111', 300000, '山田花子さんは明るく素直な性格です。リーダーシップを発揮します。新卒社員研修の時はグループ開発の時にリーダーを買ってでました。積極性も人間性も抜群です。周りに対する不満も聞いたことがありません。', 0);
 insert into employees(id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristics,dependents_count) values(3,'鈴木一朗',  'e1.png','男性', '2004/10/21', 'ichiro.suzuki@sample.com'	,'222-2222', '岩手県盛岡市1-1-1'		, '090-2222-2222', 200000, '鈴木一朗さんは明るく素直な性格です。リーダーシップを発揮します。新卒社員研修の時はグループ開発の時にリーダーを買ってでました。積極性も人間性も抜群です。周りに対する不満も聞いたことがありません。', 4);

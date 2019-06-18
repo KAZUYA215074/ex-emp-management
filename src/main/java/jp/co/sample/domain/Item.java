@@ -7,7 +7,7 @@ package jp.co.sample.domain;
  * @author user
  *
  */
-public class Administrator {
+public class Item {
 
 	/* id */
 	private Integer id;
